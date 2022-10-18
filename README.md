@@ -1,3 +1,13 @@
+![Screenshot (74)](https://user-images.githubusercontent.com/58883319/196483880-2efdbc56-f63c-4586-8b5a-807e7dd1c238.png)
+![Screenshot (75)](https://user-images.githubusercontent.com/58883319/196483895-b93a896d-f61e-40d5-83fd-6be21e061ae6.png)
+![Screenshot (77)](https://user-images.githubusercontent.com/58883319/196483916-6a7923ed-02e7-4811-ae47-dc7eda20f1f6.png)
+![Screenshot (78)](https://user-images.githubusercontent.com/58883319/196483935-c222bfbc-0efa-438a-a159-022fc1d2f00e.png)
+![Screenshot (79)](https://user-images.githubusercontent.com/58883319/196483959-736a425f-6159-48f8-9a9c-7298206c669a.png)
+![Screenshot (80)](https://user-images.githubusercontent.com/58883319/196483977-44dd361f-eaf4-4622-a8e8-fc60dfe43f49.png)
+![Screenshot (81)](https://user-images.githubusercontent.com/58883319/196483988-0b1dd7b7-9663-4b0d-8cf3-dde136516ae7.png)
+![Screenshot (82)](https://user-images.githubusercontent.com/58883319/196483998-2e3207ac-883b-4c7e-94ef-2ad38ade8d1e.png)
+![Screenshot (83)](https://user-images.githubusercontent.com/58883319/196484016-381cdddd-06b3-4e21-89a5-1e72078e4bd8.png)
+
 ### First application (REST API – No UI, only backend):
 ---
 #### User authentication API 
