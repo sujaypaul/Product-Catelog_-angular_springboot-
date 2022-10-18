@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="home" style="
+                    color: cadetblue;
+                    text-decoration: none;
+                    font-size: larger;
+                    padding: 0px;
+                    margin: 0px;
+                    font-weight: bold;
+                ">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a onclick="history.back()" style="
+                    color: cadetblue;
+                    text-decoration: none;
+                    font-size: larger;
+                    padding: 0px;
+                    margin: 0px;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">Results</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a style="
+                    color: gray;
+                    text-decoration: none;
+                    font-size: larger;
+                    padding: 0px;
+                    margin: 0px;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">{{detail.title}}</a>
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="cotainer">
+    <div class="row">
+        <div class="col-sm-6">
+
+            <img src="{{detail.thumbnail}}" height="auto" width="400" style="margin-left:50px ;padding-top: 50px;">
+            <br>
+        </div>
+        <div class="col-sm-5">
+            <br>
+            <div class="row title"> {{detail.title}}</div>
+            <div class="row brand"> By : {{detail.brand}}</div>
+            <div class="row">
+                <div class="price"><span style="font-weight: bold;">Price : </span>Rs. {{detail.price}}</div>
+                <div class="category"><span style="font-weight: bold;">Category : </span>{{detail.category}}</div>
+                <div class="rating"><span style="color: gold;">&#9733;</span><span style="font-weight: bold;">Rating : </span>{{detail.rating}}</div>
+
+            </div>
+            <br>
+            <br>
+            <div style="font-style: italic; font-weight:bold;">Description :</div>
+            <div>{{detail.description}}</div>
+            <br><br>
+            <div class="row">
+                <div class="row serviceablity">
+                    <form [formGroup]="form" (ngSubmit)="search()">
+                        <input formControlName="code" type="text" class="box" placeholder="Pinocde">
+                        <button type="submit" class="btn btn-warning">Check Availability</button>
+                    </form>
+                </div>
+
+                <div *ngIf="(formControl.code.touched || submitted) && formControl.code.errors" class="error">
+                    Enter Valid pincode
+                </div>
+
+                <div *ngIf="message " class="msg">
+                    Product will reach you in {{message}} days
+                </div>
+                <div *ngIf="message===null && submitted" class="msgerr">
+                    Product not available
+                </div>
+
+            
+
+                
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<div class="container" style="text-align: center;font-size: xx-large;">More images</div>
+<br><br>
+<div class="contaier">
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <img src="{{detail.images0}}">
+            <br>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <img src="{{detail.images1}}">
+            <br>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <img src="{{detail.images2}}">
+            <br>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <img src="{{detail.images3}}">
+            <br>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <img src="{{detail.images4}}">
+            <br>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-5">
+            <img src="{{detail.images5}}">
+            <br>
+        </div>
+    </div>
+</div>

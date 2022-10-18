@@ -1,0 +1,109 @@
+<div class="container-fluid" style="background-color: azure;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="margin-bottom: 0.5%;">
+            <li class="breadcrumb-item">
+                <a href="home" style="
+                    color: cadetblue;
+                    text-decoration: none;
+                    font-size: larger;
+                    padding: 0px;
+                    margin: 0px;
+                    font-weight: bold;
+                ">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a style="
+                    color: gray;
+                    text-decoration: none;
+                    font-size: larger;
+                    padding: 0px;
+                    margin: 0px;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">Results</a>
+            </li>
+        </ol>
+    </nav>
+    <div class="row" style="padding-bottom: 0.9%;">
+        <div class="col-sm-4" style="padding-left: 5%;">
+            <form [formGroup]="brandfilter" (ngSubmit)="search()">
+                <input type="text" formControlName="brand" placeholder="brand name">
+
+                <button type="submit" class="btn btn-warning"
+                    style="height: 25px; margin-top: 0%; padding-top: 0px;">filter</button>
+            </form>
+
+        </div>
+
+        <div class="col-sm-5">
+            <form [formGroup]="pricefilter" (ngSubmit)="priceFilter()">
+                <input type="number" min="0" formControlName="min" placeholder="min price">
+                <input type="number" min="0" formControlName="max" placeholder="max price">
+
+                <button type="submit" class="btn btn-warning"
+                    style="height: 25px; margin-top: 0%; padding-top: 0px;">filter price</button>
+            </form>
+            
+        </div>
+
+        <div class="col-2">
+            <button type="submit" class="btn btn-warning" (click)="showAll()"
+                style="height: 25px; margin-top: 0%; padding-top: 0px;">show all price</button>
+        </div>
+
+        <div class="col">
+            <button onclick="location.reload()" class="btn btn-secondary"
+                    style="height: 25px; margin-top: 0%; padding-top: 0px;">reset</button>
+        </div>
+
+
+
+
+    </div>
+</div>
+<div style="height: 80%; width:auto; overflow:scroll;">
+    <div style="text-align: center;">
+        <h1 *ngIf="filtersize">Search result for {{name}} (Total: {{filtersize}})</h1>
+
+    </div>
+    <br>
+    <div class="container">
+        <div *ngIf="!filtersize" class="noFound">
+            no result found
+        </div>
+        <div *ngFor="let row of filterData">
+            <br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <img src="{{row.thumbnail}}" alt="thumbnail" width="300" height="auto">
+                    </div>
+
+                    <br>
+                </div>
+                <div class="col" style="padding-left: 10%;">
+                    <h1>{{row.title}}</h1>
+                    <h3>{{row.brand}}</h3>
+
+                    <button (click)="detail(row.id)" class="btn btn-warning">View Detail</button>
+                </div>
+
+                <div *ngIf="viewed && priceValue.id == row.id" class="col price">
+                    Rs. {{priceValue.price}}
+                </div>
+                <div *ngIf="!viewed || priceValue.id !== row.id" class="col price">
+                    <button *ngIf="!showall" (click)="view(row.id)"
+                        style="border-style: none;background-color:transparent ; color:gray">
+                        <i class="fa fa-eye" aria-hidden="true"></i> View Price
+                    </button>
+                    <div *ngIf="showall" class="price">Rs. {{row.price}}</div>
+                </div>
+
+
+                <br>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+</div>

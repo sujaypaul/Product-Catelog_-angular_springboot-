@@ -1,0 +1,105 @@
+<div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content " style="background-color: whitesmoke;">
+        <div class="modal-header">
+            <h1 class="modal-title" id="staticBackdropLabel">Register</h1>
+            <button id="cancelreg" (click)="clear()" type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"style="border-style: none;">X</button>
+        </div>
+        <div class="modal-body">
+
+            <p class="hint-text" style="text-align: center;">Register with your email and password</p>
+            <br>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email"
+                        required="required">
+                    <span class="text-danger"
+                        *ngIf="(formControl.email.touched || submitted) && formControl.email.errors?.required">
+                        Email is required
+                    </span>
+                    <span class="text-danger" *ngIf="formControl.email.touched && formControl.email.errors?.email">
+                        Enter a valid email address
+                    </span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" formControlName="first_name"
+                                placeholder="First Name" required="required">
+                            <span class="text-danger"
+                                *ngIf="(formControl.first_name.touched || submitted) && formControl.first_name.errors?.required">
+                                First Name required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="formControl.first_name.touched && formControl.first_name.errors?.pattern">
+                                First Name not valid
+                            </span>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" formControlName="last_name" placeholder="Last Name"
+                                required="required">
+                            <span class="text-danger"
+                                *ngIf="(formControl.last_name.touched || submitted) && formControl.last_name.errors?.required">
+                                Last Name required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="formControl.last_name.touched && formControl.last_name.errors?.pattern">
+                                Last Name not valid
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input type="password" class="form-control" formControlName="password"
+                                placeholder="Password" required="required">
+                            <span class="text-danger"
+                                *ngIf="(formControl.password.touched || submitted) && formControl.password.errors?.required">
+                                Password is required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="formControl.password.touched && formControl.password.errors?.pattern">
+                                Password should contain atleast of 8 char, 1lowercase, 1 uppercase, 1numerric and 1special char
+                            </span>
+
+                        </div>
+                        <div class="col">
+                            <input type="password" class="form-control" formControlName="confirm_password"
+                                placeholder="Confirm Password" required="required">
+                            <span class="text-danger"
+                                *ngIf="(formControl.confirm_password.touched || submitted) && formControl.confirm_password.errors?.required">
+                                Enter password again 
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="formControl.confirm_password.touched && registerForm.errors?.mismatch">
+                                password does not match
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="modal-footer" style="justify-content: center !important;">
+
+                    <button type="button" id="regClosebttn" (click)="clear()" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Register</button>
+                    <div class="container row text-center">
+                        <p style="float: left;">Already have an account? <a data-bs-toggle="modal"
+                                data-bs-target="#login">Sign
+                                in</a></p>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>

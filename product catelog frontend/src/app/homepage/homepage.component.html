@@ -1,0 +1,62 @@
+<div class="container-fluid background">
+    <div class="container searchgrid">
+
+
+
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+            <div class="row">
+                <div class="col-sm-8" style="margin-right: 7%;padding-left: 10%;">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row justify-content-end">
+                                <select formControlName="param" class="param">
+                                    <option value="Name" [selected]="true">Name</option>
+                                    <option value="id">Prod. Code</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <input class="searchbox" type="search" formControlName="name">
+                            </div>
+                            <div *ngIf="submitted && formControl.name.errors" class="error">
+                                Please enter a search term
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+
+                        <a *ngIf="!selectid()" class="advanced" data-bs-toggle="collapse" href="#advancSearch"
+                            role="button" aria-expanded="false" aria-controls="collapseExample"
+                            style="background-color: whitesmoke; text-decoration: none;">
+                            Advance search options
+                        </a>
+                        <div class="collapse" id="advancSearch">
+                            <div class="card-body mt-2">
+                                <div class="row">
+                                    <div class="col-sm-3 justify-content-end param">
+                                        <label class="" style="width: 100%; color: cadetblue;padding-top: 10px;">
+                                            Brand
+                                        </label>
+                                    </div>
+                                    <div class="col">
+                                        <input class="col searchbox" type="search" formControlName="brand">
+                                        <div *ngIf="submitted && formControl.brand.errors" class="error">
+                                            Please enter a Valid search term
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="row justify-content-center">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
